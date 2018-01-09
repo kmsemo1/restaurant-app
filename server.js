@@ -14,3 +14,24 @@ app.listen(PORT, function() {
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Create a set of variables (hint: arrays of objects) for holding the reservation and waitlist data
+var reservations = [];
+
+// Get all reservations
+app.get("/reservations", function(req, res) {
+    res.json(reservations);
+});
+        
+app.post("/api/tables", function(req, res) {
+
+  var newReservation = req.body;
+
+  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newReservation);
+
+  reservations.push(newReservation);
+
+  res.json(newReservation);
+});
