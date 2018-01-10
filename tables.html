@@ -21,7 +21,7 @@
       <br>
 
       <div class="text-center">
-        <a href="/reserve"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
+        <a href="/"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
         <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
       </div>
     </div>
@@ -53,7 +53,7 @@
     <footer class="footer">
       <div class="container">
         <p>Control Panel</p>
-        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/afhaque/HotRestaurant">GitHub Repo</a></p>
+        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="">GitHub Repo</a></p>
       </div>
     </footer>
 
@@ -76,12 +76,12 @@
       var currentURL = window.location.origin;
 
       // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-      $.ajax({ url: currentURL + "/api/tables", method: "GET" })
+      $.ajax({ url: currentURL + "/reservations", method: "GET" })
       .done(function(tableData) {
 
         // Here we are logging the URL so we have access to it for troubleshooting
         console.log("------------------------------------");
-        console.log("URL: " + currentURL + "/api/tables");
+        console.log("URL: " + currentURL + "/reservations");
         console.log("------------------------------------");
 
         // Here we then log the NYTData to console, where it will show up as an object.
