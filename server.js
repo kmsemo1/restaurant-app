@@ -27,11 +27,19 @@ app.post("/api/tables", function(req, res) {
 
   var newReservation = req.body;
 
-  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+  //newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newReservation);
 
   reservations.push(newReservation);
 
   res.json(newReservation);
+});
+
+app.get("/tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "reservation.html"));
 });
